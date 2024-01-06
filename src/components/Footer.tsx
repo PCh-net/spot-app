@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlugCircleBolt, faHome, faEthernet, faCircleChevronUp, faIcons, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faPlugCircleBolt, faHome, faEthernet, faIcons, faGlobe } from '@fortawesome/free-solid-svg-icons';
 
 
 const Footer = () => {
@@ -37,7 +37,7 @@ const Footer = () => {
             <FontAwesomeIcon icon={faHome} className='text-xl' />&emsp;Up page
           </span>
         </Link>
-        <div className="flex flex-row block py-6 px-4 text-sm hover:bg-sky-500 justify-center" >
+        <div className="flex-row block py-6 px-4 text-sm hover:bg-sky-500 justify-center" >
            <img src="/images/logos/Spotify_Logo_RGB_White.png" alt="Spotify-Logo" className="h-6 md:h-6" />
           <span className='text-l text-sky-100 ml-4'>API 2023-2024 by PCh</span>
         </div>

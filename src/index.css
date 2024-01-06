@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica&family=Audiowide&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +18,27 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+h1, h2, h3 {
+  font-family: 'Audiowide', sans-serif;
+}
+
+p {
+  font-family: 'Geologica', sans-serif;
+}
+
+button {
+  font-family: 'Audiowide', sans-serif;
+}
+ul, li, span {
+  font-family: 'Audiowide', sans-serif;
+}
+
+
+.icon-hover-translate {
+  transition: transform 150ms ease-in-out;
+}
+
+.icon-hover-translate:hover {
+  transform: translateX(5px);
 }

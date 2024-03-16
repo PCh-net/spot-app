@@ -1,10 +1,7 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { Helmet } from 'react-helmet-async';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import MiniButton from '../components/MiniButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faTimes, faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 
 const TopRankMiddle = () => {

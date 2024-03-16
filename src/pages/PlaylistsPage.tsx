@@ -58,7 +58,7 @@ const PlaylistsPage = () => {
     };
 
     fetchFeaturedPlaylists();
-    console.log(playlists);
+
   }, [accessToken]);
 
   if (!playlists) {

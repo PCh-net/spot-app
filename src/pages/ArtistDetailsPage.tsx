@@ -1,4 +1,3 @@
-// pages/ArtistDetailsPage.tsx
 import React, { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -18,7 +17,6 @@ interface Album {
   album_type: string;
   album_group: string;
   total_tracks: string;
-  // ...
 }
 
 interface ArtistDetails {
@@ -30,8 +28,7 @@ interface ArtistDetails {
   popularity: string;
   type: string;
   external_urls: {spotify: string;};
-  albums: Album[]; // ...
-
+  albums: Album[]; 
 }
 
 const ArtistDetailsPage = () => {
@@ -43,7 +40,7 @@ const ArtistDetailsPage = () => {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate(-1); // baack...
+    navigate(-1);
   };
   
   const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
@@ -93,55 +90,58 @@ const ArtistDetailsPage = () => {
 
   }, [accessToken, artistId]);
 
-    // ...
     const fetchAlbums = async () => {
       try {
         const response = await axios.get(`https://api.spotify.com/v1/artists/${artistId}/albums`, {
           headers: { 'Authorization': `Bearer ${accessToken}` }
         });
-        setAlbums(response.data.items); // ...
+        setAlbums(response.data.items);
       } catch (error) {
         console.error('Error fetching artist albums:', error);
       }
     };
 
-    // useEffect...
     useEffect(() => {
       if (!accessToken || !artistId) return;
       fetchAlbums();
-      console.log(albums);
+
     }, [accessToken, artistId]);
     
 
     if (!artistDetails) {
       return <div className='container mx-auto p-4'>
-        <h3 className='text-sky-100'>Loading...</h3>
         <img className="h-full md:h-full lg:h-full" src='/images/loader-300.gif' alt='Loader' />
         </div>
     }
 
-
-
-
   return (
     <div className="container mx-auto p-4">
       <div className="bg-gradient-to-r from-sky-600 via-sky-700 to-sky-500 rounded-2xl shadow-md p-4 drop-shadow-xl mt-4">
-        <h1 className='text-2xl text-sky-100'><span className='text-sky-300'>Artist: </span>{artistDetails.name}</h1>
-        <p className='text-m text-sky-100'><span className='text-sky-300'>Followers: </span>{artistDetails.followers.total}</p>
-        <p className='text-m text-sky-100'><span className='text-sky-300'>Popularity: </span>{artistDetails.popularity}</p>
-        <p className='text-m text-sky-100'><span className='text-sky-300'>Type: </span>{artistDetails.type}</p>
-        {/*   */}
-        {artistDetails.images?.length > 0 && (
-          <img 
-            className='w-128 md:w-256 lg:w-256 rounded p-4' 
-            src={artistDetails.images[0].url} 
-            alt={artistDetails.name} 
-          />
-        )}
-        <h2 className='text-xl text-sky-100'><span className='text-sky-300'>Albums: </span>{albums.length}</h2>
+        <div className='flex flex-col md:flex-row'>
+          <div className='flex basis-1/5'>
+            {artistDetails.images?.length > 0 && (
+              <img 
+                className='p-2 w-full object-cover rounded-xl' 
+                src={artistDetails.images[0].url} 
+                alt={artistDetails.name} 
+              />
+            )}
+          </div>
+          <div className='flex flex-col basis-4/5 ml-4'>
+            <h1 className='text-2xl md:text-3xl lg:text-4xl text-sky-100'><span className='text-sky-300'>Artist: </span>{artistDetails.name}</h1>
+            <p className='text-m md:text-2xl lg:text-2xl text-sky-100'><span className='text-sky-300'>Followers: </span>{artistDetails.followers.total}</p>
+            <p className='text-m md:text-2xl lg:text-2xl text-sky-100'><span className='text-sky-300'>Popularity: </span>{artistDetails.popularity}</p>
+            <p className='text-m md:text-2xl lg:text-2xl text-sky-100'><span className='text-sky-300'>Type: </span>{artistDetails.type}</p>
+            <h2 className='text-m md:text-lg lg:text-lg text-sky-100'><span className='text-sky-300'>Albums: </span>{albums.length}</h2>
+          </div>
+        </div>
+        <div className='p-2 shadow-lg'>
+          <h2 className='text-xl md:text-2xl lg:text-3xl text-sky-200'>Latest albums:</h2>
+        </div>
+        
         {albums.map((album, index) => (
           <div key={index} className='flex flex-row shadow-lg pb-4 pt-4'>
-            <div className="flex basis-2/6">
+            <div className="flex basis-2/6 p-2">
             {artistDetails.images?.length > 0 && (
               <div>
                 <Link to={`/albums/${album.id}`} onClick={() => window.scrollTo(0, 0)} >
@@ -155,11 +155,11 @@ const ArtistDetailsPage = () => {
             )}
             </div>         
             <div className='flex-col basis-4/6 p-2'>
-              <h2 className='text-lg md:text-4xl text-sky-100'><span className='text-lg md:text-4xl text-sky-300'>Album: </span>{album.name}</h2>
-              <p className='text-m md:text-3xl text-sky-100'><span className='text-sky-300'>Release date: </span></p>
-              <p className='text-m md:text-4xl text-sky-100'><span>{album.release_date}</span></p>
-              <p className='text-m md:text-3xl text-sky-100 mb-2'><span className='text-sky-300'>Total tracks: </span>{album.total_tracks}</p>
-              <Link to={`/albums/${album.id}`} onClick={() => window.scrollTo(0, 0)} ><MiniButton fullWidth={true} ><FontAwesomeIcon icon={faCaretRight} />&emsp;More info</MiniButton></Link>
+              <h2 className='text-lg md:text-2xl lg:text-2xl text-sky-100'><span className='text-lg md:text-2xl lg:text-2xl text-sky-300'>Album: </span>{album.name}</h2>
+              <p className='text-m md:text-2xl lg:text-2xl text-sky-100'><span className='text-sky-300'>Release date: </span></p>
+              <p className='text-m md:text-2xl lg:3xl text-sky-100'><span>{album.release_date}</span></p>
+              <p className='text-m md:text-xl lg:text-xl text-sky-100 mb-2'><span className='text-sky-300'>Total tracks: </span>{album.total_tracks}</p>
+              <Link to={`/albums/${album.id}`} onClick={() => window.scrollTo(0, 0)} ><MiniButton fullWidth={false} size={`text-sm md:text-lg lg:text-lg`} ><FontAwesomeIcon icon={faCaretRight} />&emsp;Preview album</MiniButton></Link>
             </div>
         </div>
         ))}

@@ -12,8 +12,6 @@ import PlaylistDetailsPage from './pages/PlaylistDetailsPage';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import TopRankMiddle from './components/TopRankMiddle';
-import TopArtistMiddle from './components/TopArtistMiddle';
 import CategoriesMiddle from './components/CategoriesMiddle';
 
 const App: React.FC = () => {
@@ -22,8 +20,6 @@ const App: React.FC = () => {
       <Router>
       <Navbar />
         <div className='bg-gradient-to-tr from-sky-900 via-sky-700 to-sky-500 min-h-screen p-2'>
-
-          {/* Definicje ścieżek */}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/categories/:id" element={<CategoriesPage />} />
@@ -33,11 +29,7 @@ const App: React.FC = () => {
             <Route path="/artist/:artistId" element={<ArtistDetailsPage />} />
             <Route path="/playlist" element={<PlaylistsPage />} />
             <Route path="/playlist/:playlistId" element={<PlaylistDetailsPage />} />
-
-
           </Routes>
-          <TopRankMiddle />
-          <TopArtistMiddle />  
           <CategoriesMiddle />   
         </div>
 

@@ -17,7 +17,7 @@ const Navbar = () => {
             {/* logo */}
             <div>
               <Link to="/" className="flex items-center py-5 px-2">
-                <img src="/images/logos/Spotify_Logo_RGB_Green.png" alt="Spotify-Logo" className="h-8 md:h-10" />
+                <img src="/images/logos/Spotify_Logo_RGB_White.png" alt="Spotify-Logo-White" className="h-8 md:h-8 lg:h-8" />
 
               </Link>
             </div>

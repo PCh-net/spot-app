@@ -9,9 +9,7 @@ const Footer = () => {
 
   return (
     <div className="bg-gradient-to-tr from-sky-900 via-sky-700 to-sky-500 shadow-md">
-
       <div>
-
         <Link to="/categories/0JQ5DAqbMKFAXlCG6QvYQ4" className="block py-2 px-4 text-sm hover:bg-sky-500" onClick={() => window.scrollTo(0, 0)}>
           <span className='text-xl text-sky-100 hover:text-sky-200'>
             <FontAwesomeIcon icon={faPlugCircleBolt} className='text-xl' />&emsp;Energy

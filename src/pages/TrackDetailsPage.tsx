@@ -1,13 +1,11 @@
-// pages/TrackDetailsPage.tsx
 import React, { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import MiniButton from '../components/MiniButton';
 import CustomButton from '../components/CustomButton';
-import XMiniButton from '../components/XMiniButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleChevronLeft, faCaretRight, faInfoCircle, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCircleChevronLeft, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 interface Image {
   height: number;
@@ -123,54 +121,47 @@ const TrackDetailsPage = () => {
     fetchTrackDetails();
   }, [accessToken, trackId]);
 
+
   if (!trackDetails) {
     return <div className='container mx-auto p-4'>
-      <h3 className='text-sky-100'>Loading...</h3>
       <img className="h-full md:h-full lg:h-full" src='/images/loader-300.gif' alt='Loader' />
       </div>
   }
 
   return (
-
-    
     <div className="container mx-auto p-4">
       <div className="bg-gradient-to-r from-sky-600 via-sky-700 to-sky-500 rounded-2xl shadow-md p-4 drop-shadow-xl mt-4">
-        <h1 className='text-2xl text-sky-100'><span className='text-sky-300'>Track: </span>{trackDetails.name}</h1>
-        <p className='text-m text-sky-100'><span className='text-sky-300'>Popularity: </span>{trackDetails.popularity}/100</p>
-        <p className='text-m text-sky-100'><span className='text-sky-300'>Duration: </span>
-        {formatDuration(trackDetails.duration_ms)}</p>
-        <p className='text-s text-sky-100'><span className='text-sky-300'>Release date: </span>{trackDetails.album.release_date}</p>
-
-        {trackDetails.album?.images?.length > 0 && (
-          <img 
-            className='w-128 md:w-256 lg:w-256 rounded p-4' 
-            src={trackDetails.album.images[0].url} 
-            alt={trackDetails.name} 
-          />
-        )}
-        <h2 className='text-xl text-sky-100 mt-2'>Artist:</h2>
-
-        {trackDetails.artists.map((artist, index) => (
-          <div key={index} className='flex flex-row shadow-lg'>
-            <div className="flex basis-5/6 mt-2">
-              <p className='text-l text-sky-200 hover:text-sky-100 hover:underline-offset-1'>
-              <FontAwesomeIcon className='text-l text-sky-300' icon={faCaretRight} />&emsp;
-              <Link to={`/artist/${artist.id}`} onClick={() => window.scrollTo(0, 0)} >{artist.name} - {artist.type}</Link>&emsp;
-              </p>
-            </div>
-            <div className='flex relative justify-center items-center basis-1/6 group'>
-              <Link to={`/artist/${artist.id}`} onClick={() => window.scrollTo(0, 0)}>
-              <FontAwesomeIcon className='text-l text-sky-100 hover:text-sky-400' icon={faInfoCircle} />
-              </Link>
-              <div className="absolute bottom-full mb-2 hidden px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 group-hover:block group-hover:opacity-100 z-10">
-              Link to Spotify
-              </div>
-            </div>
+        <div className='flex flex-col md:flex-row'>
+          <div className='flex basis-2/5'>
+            {trackDetails.album?.images?.length > 0 && (
+              <img 
+                className='w-full p-2' 
+                src={trackDetails.album.images[0].url} 
+                alt={trackDetails.name} 
+              />
+            )}
           </div>
-        ))}
+          <div className='flex flex-col basis-3/5 ml-2'>
+            <h1 className='text-2xl md:text-3xl lg:text-4xl text-sky-100'><span className='text-sky-300'>Track: </span>{trackDetails.name}</h1>
+            <p className='text-m md:text-2xl lg:text-2xl text-sky-100'><span className='text-sky-300'>Popularity: </span>{trackDetails.popularity}/100</p>
+            <p className='text-m md:text-2xl lg:text-2xl text-sky-100'><span className='text-sky-300'>Duration: </span>{formatDuration(trackDetails.duration_ms)}</p>
+            <p className='text-s text-sky-100'><span className='text-sky-300'>Release date: </span>{trackDetails.album.release_date}</p>
+            <h2 className='text-xl text-sky-100 mt-2'>Artist:</h2>
+            {trackDetails.artists.map((artist, index) => (
+            <Link className='text-sm' key={index} to={`/artist/${artist.id}`} onClick={() => window.scrollTo(0, 0)} >
+              <MiniButton fullWidth={false} size={`text-sm md:text-sm lg:text-lg`} >
+              <FontAwesomeIcon icon={faInfoCircle} />&emsp;{artist.name}
+              </MiniButton>
+            </Link>
+          ))}
+          </div>
+        </div>
+        <div className='p-2 shadow-lg'>
+          <h2 className='text-xl md:text-2xl lg:text-3xl text-sky-200'>Track:</h2>
+        </div>
+
         <h2 className='text-xl text-sky-100 mt-4'><span className='text-sky-300'>Album: </span>{trackDetails.album.name}</h2>
         <p className='text-l text-sky-100 mb-2'><span className='text-sky-300'>Track: </span>{trackDetails.name}</p>
-        <Link to={`/albums/${trackDetails.album.id}`} onClick={() => window.scrollTo(0, 0)} ><MiniButton fullWidth={true} ><FontAwesomeIcon icon={faCircleChevronLeft} />&emsp;Back to full album</MiniButton></Link>
 
         {trackDetails.preview_url ? (
           <h2 className='text-xl text-sky-100 mt-2 mb-2'>Preview track:</h2>
@@ -191,17 +182,9 @@ const TrackDetailsPage = () => {
             </div>
           )}
 
-
-
-        <div className='flex flex-row shadow-lg items-center pt-3 pb-3'>
+        <div className='flex flex-col md:flex-row lg:flex-row shadow-lg items-center pt-3 pb-3'>
           <div className="flex flex-col basis-3/6 justify-start">
-          {trackDetails.artists.map((artist, index) => (
-            <Link className='text-sm' key={index} to={`/artist/${artist.id}`} onClick={() => window.scrollTo(0, 0)} >
-              <XMiniButton fullWidth={true} >
-              <FontAwesomeIcon icon={faStar} />&emsp;{artist.name}
-              </XMiniButton>
-            </Link>
-          ))}
+            <Link to={`/albums/${trackDetails.album.id}`} onClick={() => window.scrollTo(0, 0)} ><MiniButton fullWidth={true} size={`text-sm md:text-lg lg:text-lg`} ><FontAwesomeIcon icon={faCircleChevronLeft} />&emsp;Back to full album</MiniButton></Link>
           </div>         
           <div className='flex basis-3/6 justify-end'>
             <Link to={`${trackDetails.external_urls.spotify}`} target="_blank" rel="noopener noreferrer" >

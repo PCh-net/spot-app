@@ -1,12 +1,10 @@
-// pages/PlaylistDetailsPage.tsx
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import AudioPlayer from '../components/AudioPlayer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import PlaylistsPage from './PlaylistsPage';
+import MiniButton from '../components/MiniButton';
 
 interface ExternalUrls {
   spotify: string;
@@ -106,11 +104,7 @@ const PlaylistDetailsPage = () => {
   const { playlistId } = useParams<{ playlistId: string }>();
   const [tracks, setTracks] = useState<Track[]>([]);
   const [accessToken, setAccessToken] = useState<string | null>(null);
-  const [playingTrackId, setPlayingTrackId] = useState<string | null>(null);
-
-  const handlePlayTrack = (trackId: string | null) => {
-    setPlayingTrackId(trackId);
-};
+  const playingAudioRef = useRef<HTMLAudioElement | null>(null);
 
   const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
   const clientSecret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
@@ -159,6 +153,12 @@ const PlaylistDetailsPage = () => {
 
   }, [accessToken, playlistId]);
 
+  const handlePlayAudio = useCallback((audioElement: HTMLAudioElement) => {
+    if (playingAudioRef.current && playingAudioRef.current !== audioElement) {
+      playingAudioRef.current.pause();
+    }
+    playingAudioRef.current = audioElement;
+  }, []);
 
   if (!tracks) {
     return <div className='container mx-auto p-4'>
@@ -167,13 +167,11 @@ const PlaylistDetailsPage = () => {
       </div>
   }
 
-
-
   return (
     <div className="container mx-auto p-4">
       <h1 className='text-2xl md:text-3xl text-sky-100 mb-4'>Playlist Tracks</h1>
       {tracks.map((track, index) => (
-      <div key={track.id} className='shadow-lg mt-4'>
+      <div key={track.id} className='flex-row bg-gradient-to-r from-sky-600 via-sky-700 to-sky-500 rounded-2xl shadow-md p-4 drop-shadow-xl mt-4'>
         <div className='flex flex-row'>
           <div className='flex basis-2/6'>
 
@@ -184,7 +182,7 @@ const PlaylistDetailsPage = () => {
                 src={track.album.images[0]?.url || '/images/logos/Spotify_Icon_RGB_White.png'} 
                 alt={track.name}
                 onError={(e) => e.currentTarget.src = '/images/logos/Spotify_Icon_RGB_White.png'}
-                className="w-full object-cover rounded p-2 shadow-md" 
+                className="w-full object-cover rounded p-2" 
               />
               </Link>
             </div>
@@ -192,33 +190,53 @@ const PlaylistDetailsPage = () => {
 
           </div>
           <div className='flex flex-col basis-4/6 p-2'>
-            <h2 className='text-xl md:text-4xl no-underline hover:underline text-sky-100'>{index + 1}. <Link to={`/track/${track.id}`} onClick={() => window.scrollTo(0, 0)}>{track.name}</Link></h2>           
-            <p><span className='text-xl md:text-3xl text-sky-200'>Artist(s):</span></p>
-
+            <h2 className='text-xl md:text-xl lg:text-2xl no-underline hover:underline text-sky-100'>{index + 1}. <Link to={`/track/${track.id}`} onClick={() => window.scrollTo(0, 0)}>{track.name}</Link></h2>           
+            <p><span className='text-md md:text-lg lg:text-xl text-sky-200'>Artist(s):</span></p>
             {track.artists.map((artist, index) => (
-              <span key={artist.id} className='text-l md:text-2xl no-underline hover:underline text-sky-100'>
-                <FontAwesomeIcon className='text-l md:text-2xl text-sky-100 hover:text-sky-400' icon={faInfoCircle} /> <Link to={`/artist/${artist.id}`}>{artist.name}</Link>
+              <span key={artist.id} className='text-sm md:text-sm lg:text-xl text-sky-100'>
+                <FontAwesomeIcon icon={faInfoCircle} /> <Link className='no-underline hover:underline' to={`/artist/${artist.id}`}>{artist.name}</Link>
                 {index < track.artists.length - 1 ? ', ' : ''}
               </span>
-              
             ))}
-            <p className='text-l md:text-2xl text-sky-100'>Popularity: {track.popularity}</p>
+            <p className='text-sm md:text-sm lg:text-xl text-sky-100'>Popularity: {track.popularity}</p>
+            <p className='text-sm md:text-sm lg:text-xl text-sky-100'>Type: {track.type}</p>
             {track.preview_url && (
-              <p className='text-m md:text-2xl text-sky-100'>Preview - 30 sec :&emsp;</p>
+              <p className='text-sm md:text-sm lg:text-xl text-sky-100'>Preview:</p>
             )}
+
             {track.preview_url ? (
-                <AudioPlayer 
-                  src={track.preview_url} 
-                  trackId={track.id} 
-                  onPlay={handlePlayTrack} 
-                  isPlaying={playingTrackId === track.id}
-                />
+              <div className='py-2'>
+                <audio
+                src={track.preview_url}
+                controls
+                controlsList="nodownload"
+                preload="none"
+                className="w-full h-8 md:h-8 lg:h-10 rounded-lg shadow-lg"
+                onPlay={(emit) => handlePlayAudio(emit.currentTarget)}
+              >
+                Your browser does not support the audio.
+              </audio>
+            </div>
             ) : (
-              <p className='text-l md:text-2xl text-sky-300'>Preview - disable&emsp;</p>
+            <div className='text-sm md:text-sm lg:text-sm text-sky-200 py-2'>
+              <p>Preview disable listen on Spotify</p>
+              <Link to={track.external_urls.spotify} target="_blank" rel="noopener noreferrer" >
+                <MiniButton fullWidth={false} >
+                  <img className="w-12 md:w-12 lg:w-20" src='/images/logos/Spotify_Logo_RGB_White.png' alt='Listen on Spotify' />
+                </MiniButton>
+              </Link>
+            </div>
             )}
+            <p className='text-sm md:text-md lg:text-lg text-sky-100 py-2'><span className='text-sky-300'>Album: </span>{track.album.name}</p>
+            <Link to={`/albums/${track.album.id}`} >
+              <MiniButton fullWidth={false} size={`text-sm md:text-sm lg:text-lg`} >
+                Full album
+              </MiniButton>
+            </Link>
           </div>
           
         </div>
+
       </div>
       ))}
 

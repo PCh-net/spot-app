@@ -107,7 +107,6 @@ const CategoriesPage = () => {
 
   if (!categoryDetails) {
     return <div className='container mx-auto p-4'>
-      <h3 className='text-sky-100'>Loading...</h3>
       <img className="h-full md:h-full lg:h-full" src='/images/loader-300.gif' alt='Loader' />
       </div>
   }
@@ -121,7 +120,7 @@ const CategoriesPage = () => {
 
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {isLoading ? (
-          <p className="text-l text-sky-200">Loading playlist...</p>
+          <p className="text-l text-sky-200"></p>
         ) : error ? (
           <p className="text-l text-red-500">{error}</p>
         ) : playlists.length > 0 ? (
@@ -139,13 +138,12 @@ const CategoriesPage = () => {
                   <img className="h-6 md:h-4 lg:h-4 mr-2" src='/images/logos/Spotify_Icon_RGB_White.png' alt='Logo' />
                   </div>
                 </div>
-                <span className='text-xs md:text-xs lg:text-xs text-sky-200 ml-2'>Category: {categoryDetails?.name}</span>
                 {playlist.images.length > 0 && (
                   <Link to={`/playlist/${playlist.id}`}><img 
                   src={playlist.images[0]?.url || '/images/logos/Spotify_Icon_RGB_White.png'} 
                   onError={(e) => e.currentTarget.src = '/images/logos/Spotify_Icon_RGB_White.png'}
                   alt={playlist.name}
-                  className='p-4 w-full object-cover rounded'
+                  className='p-2 w-full object-cover rounded'
                   onClick={() => window.scrollTo(0, 0)}
                   />
                   </Link>
@@ -155,10 +153,10 @@ const CategoriesPage = () => {
                   <span className='text-l md:l lg:sl text-sky-100 hover:text-sky-200 line-clamp-2 text-ellipsis min-h-[2rem]'><Link  to={`/playlist/${playlist.id}`} onClick={() => window.scrollTo(0, 0)}>{playlist.name}</Link></span>
                   <p className='text-xs md:xs lg:sm text-sky-200'>Tracks: {playlist.tracks.total}</p>
                   <span className='text-xs md:xs lg:sm text-sky-200 line-clamp-3 text-ellipsis min-h-[3rem]'>{playlist.description}</span>
-                  <div className='pt-2 pd-2'>
+                  <div className='py-2'>
                   <Link to={`/playlist/${playlist.id}`} onClick={() => window.scrollTo(0, 0)} className='text-xs text-sky-500'>
-                    <XMiniButton  fullWidth={false}>
-                    <FontAwesomeIcon icon={faCaretRight} />&emsp;Full playlist
+                    <XMiniButton fullWidth={false}>
+                    <FontAwesomeIcon icon={faCaretRight} /> Full playlist
                     </XMiniButton>
                   </Link>
                   </div>

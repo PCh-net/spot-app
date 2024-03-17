@@ -6,7 +6,6 @@ const XMiniButton = ({ fullWidth = false, ...props }) => {
     text-xs
     md:text-xs
     lg:text-xs
-
     text-sky-100
     bg-gradient-to-br from-sky-700 via-sky-400 to-sky-200
     hover:bg-gradient-to-r from-sky-200 via-sky-400 to-sky-500

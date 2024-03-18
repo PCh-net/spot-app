@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import XMiniButton from '../components/XMiniButton';
+import SeoMetaTags from '../components/SeoMetaTags'; // important!
 
 
-// 
 interface Playlist {
   id: string;
   name: string;
@@ -99,11 +99,8 @@ const CategoriesPage = () => {
       fetchCategoryDetails();
       fetchCategoryPlaylists();
     }
-    // console.log(isLoading)
-    // console.log(playlists)
-    // console.log(categoryDetails)
-  }, [id, accessToken]);
 
+  }, [id, accessToken]);
 
   if (!categoryDetails) {
     return <div className='container mx-auto p-4'>
@@ -113,6 +110,12 @@ const CategoriesPage = () => {
   
   return (
     <div className="container mx-auto p-4">
+      <SeoMetaTags 
+        title={`SpotApp | Categories`}
+        description={`Category playlist: ${categoryDetails?.name}`}
+        imageUrl={categoryDetails.icons[0].url}
+        keywords={`playlist,${categoryDetails?.name}`}
+      />
       <h1 className="text-2xl text-sky-200 mb-4">Category Details: {categoryDetails?.name}</h1>
       {categoryDetails && categoryDetails.icons && categoryDetails.icons.length > 0 && (
         <img src={categoryDetails.icons[0].url} alt={categoryDetails.name} className="w-full h-full mb-4 md:hidden lg:hidden" />

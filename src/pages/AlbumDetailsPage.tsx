@@ -6,6 +6,7 @@ import CustomButton from '../components/CustomButton';
 import MiniButton from '../components/MiniButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleChevronLeft, faCaretRight, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import SeoMetaTags from '../components/SeoMetaTags'; // important!
 
 interface Track {
   id: string;
@@ -24,7 +25,8 @@ interface AlbumDetails {
   artists: [{ name: string; id: string }];
   images: [{ url: string }];
   total_tracks: string;
-  release_date: string;  
+  release_date: string;
+  label: string;
   tracks: {
     items: Track[];
   }
@@ -85,8 +87,6 @@ const AlbumDetailsPage = () => {
 
   }, [albumId, accessToken]);
 
-  
-
   const handlePlayAudio = useCallback((audioElement: HTMLAudioElement) => {
     if (playingAudioRef.current && playingAudioRef.current !== audioElement) {
       playingAudioRef.current.pause();
@@ -96,13 +96,18 @@ const AlbumDetailsPage = () => {
   
   if (!albumDetails) {
     return <div className='container mx-auto p-4'>
-      <h3 className='text-sky-100'>Loading...</h3>
       <img className="h-full md:h-full lg:h-full" src='/images/loader-300.gif' alt='Loader' />
       </div>
   }
 
   return (
     <div className="container mx-auto p-4">
+      <SeoMetaTags 
+        title={`SpotApp | Album: ${albumDetails.name}`}
+        description={`Artist: ${albumDetails.artists[0].name}`}
+        imageUrl={albumDetails.images[0].url}
+        keywords={`album,${albumDetails.label},${albumDetails.artists[0].name}`}
+      />
       <div className="flex-row bg-gradient-to-r from-sky-600 via-sky-700 to-sky-500 rounded-2xl shadow-md p-4 drop-shadow-xl mt-4">
         <div className='flex flex-col md:flex-row'>
           <div className='flex basis-2/5'>

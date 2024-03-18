@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import SeoMetaTags from '../components/SeoMetaTags'; // important!
 
 
 interface Playlist {
@@ -61,6 +62,7 @@ const PlaylistsPage = () => {
 
   }, [accessToken]);
 
+
   if (!playlists) {
     return <div className='container mx-auto p-4'>
       <h3 className='text-sky-100'>Loading...</h3>
@@ -70,6 +72,12 @@ const PlaylistsPage = () => {
   
   return (
     <div className="container mx-auto p-4">
+      <SeoMetaTags 
+        title={`SpotApp | Playlists`}
+        description='Explore a curated selection of Spotify playlists tailored to every mood and occasion in our app. From energizing workout tunes to relaxing evening melodies, enjoy 30-second previews of songs and discover your next favorite playlist. Dive into music exploration now!'
+        imageUrl={playlists[0]?.images[0].url}
+        keywords='playlist,spotify'
+      />
       <h1 className="text-2xl text-sky-100 mb-4">Featured Playlists</h1>
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
       {playlists.map(playlist => (

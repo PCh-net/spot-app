@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import MiniButton from '../components/MiniButton';
+import SeoMetaTags from '../components/SeoMetaTags'; // important!
 
 interface ExternalUrls {
   spotify: string;
@@ -144,6 +145,7 @@ const PlaylistDetailsPage = () => {
         });
         const fetchedTracks = response.data.items.map((item: SpotifyTrackItem) => item.track);
         setTracks(fetchedTracks);
+
       } catch (error) {
         console.error('Error fetching playlist tracks:', error);
       }
@@ -160,15 +162,21 @@ const PlaylistDetailsPage = () => {
     playingAudioRef.current = audioElement;
   }, []);
 
+
   if (!tracks) {
     return <div className='container mx-auto p-4'>
-      <h3 className='text-sky-100'>Loading...</h3>
       <img className="h-full md:h-full lg:h-full" src='/images/loader-300.gif' alt='Loader' />
       </div>
   }
 
   return (
     <div className="container mx-auto p-4">
+      <SeoMetaTags 
+        title={`SpotApp | Playlist`}
+        description='Step into a world of musical diversity with playlists for every taste and occasion, curated from Spotifys vast library. Our app lets you sample 30-second snippets of songs, making it easier to find playlists that resonate with your current mood or activity. Explore genres you love and discover new ones to fall in love with.'
+        imageUrl={tracks[0]?.album.images[0].url}
+        keywords={`playlist,`}
+      />
       <h1 className='text-2xl md:text-3xl text-sky-100 mb-4'>Playlist Tracks</h1>
       {tracks.map((track, index) => (
       <div key={track.id} className='flex-row bg-gradient-to-r from-sky-600 via-sky-700 to-sky-500 rounded-2xl shadow-md p-4 drop-shadow-xl mt-4'>

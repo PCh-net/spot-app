@@ -6,6 +6,7 @@ import { faArrowLeft, faArrowRight, faCaretRight, faInfoCircle } from '@fortawes
 import CustomButton from '../components/CustomButton';
 import MiniButton from '../components/MiniButton';
 import PaginationButton from '../components/PaginationButton';
+import SeoMetaTags from '../components/SeoMetaTags'; // important!
 
 interface Album {
   id: string;
@@ -93,17 +94,20 @@ const handleNext = () => {
 };
 
 
-
 if (!albums) {
   return <div className='container mx-auto p-4'>
-    <h3 className='text-sky-100'>Loading...</h3>
     <img className="h-full md:h-full lg:h-full" src='/images/loader-300.gif' alt='Loader' />
     </div>
 }
 
   return (
-    
     <div className="container mx-auto p-4">
+      <SeoMetaTags 
+        title={`SpotApp | Albums new Releases`}
+        description='Dive into the world of music with our app, where the latest albums across all genres await you. Powered by Spotify comprehensive library, find your next favorite album and expand your musical horizons. New music is always at your fingertips!'
+        imageUrl={albums[0]?.images[0].url}
+        keywords='albums,spotify'
+      />
       <h1 className="text-2xl md:text-2xl lg:text-4xl text-sky-100 mb-4">New Releases</h1>
       <div className="flex text-xl justify-center mt-4 align-middle">
         <PaginationButton onClick={handlePrevious} disabled={currentPage === 0}>
@@ -120,7 +124,6 @@ if (!albums) {
       {!albums.length ? (
         <div className="text-center">
           <img src='/images/loader-300.gif' alt='Loading...' />
-          <p>Loading...</p>
         </div>
         ) : (
         albums.map(album => (

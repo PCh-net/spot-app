@@ -7,6 +7,7 @@ import CustomButton from '../components/CustomButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleChevronLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import MiniButton from '../components/MiniButton';
+import SeoMetaTags from '../components/SeoMetaTags'; // important!
 
 interface Album {
   id: string;
@@ -116,6 +117,12 @@ const ArtistDetailsPage = () => {
 
   return (
     <div className="container mx-auto p-4">
+      <SeoMetaTags 
+        title={`SpotApp | Artist - ${artistDetails?.name}, followers - ${artistDetails.followers.total}`}
+        description={`Latest album: ${albums[0]?.name} (${albums[0]?.release_date}) - total tracks ${albums[0]?.total_tracks}`}
+        imageUrl={artistDetails.images[0].url}
+        keywords={`${artistDetails.name},artist,spotify`}
+      />
       <div className="bg-gradient-to-r from-sky-600 via-sky-700 to-sky-500 rounded-2xl shadow-md p-4 drop-shadow-xl mt-4">
         <div className='flex flex-col md:flex-row'>
           <div className='flex basis-1/5'>

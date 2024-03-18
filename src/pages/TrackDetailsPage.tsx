@@ -6,6 +6,7 @@ import MiniButton from '../components/MiniButton';
 import CustomButton from '../components/CustomButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleChevronLeft, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import SeoMetaTags from '../components/SeoMetaTags'; // important!
 
 interface Image {
   height: number;
@@ -122,6 +123,7 @@ const TrackDetailsPage = () => {
   }, [accessToken, trackId]);
 
 
+
   if (!trackDetails) {
     return <div className='container mx-auto p-4'>
       <img className="h-full md:h-full lg:h-full" src='/images/loader-300.gif' alt='Loader' />
@@ -130,6 +132,12 @@ const TrackDetailsPage = () => {
 
   return (
     <div className="container mx-auto p-4">
+      <SeoMetaTags 
+        title={`SpotApp | Track detail: ${trackDetails.name}`}
+        description={`Album: ${trackDetails.album.name}, release date: ${trackDetails.album.release_date}`}
+        imageUrl={trackDetails.album.images[0].url}
+        keywords={`track,${trackDetails.name}`}
+      />
       <div className="bg-gradient-to-r from-sky-600 via-sky-700 to-sky-500 rounded-2xl shadow-md p-4 drop-shadow-xl mt-4">
         <div className='flex flex-col md:flex-row'>
           <div className='flex basis-2/5'>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleInfo, faCaretRight, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import MiniButton from '../components/MiniButton';
+import SeoMetaTags from '../components/SeoMetaTags'; // important!
 
 interface Album {
   id: string;
@@ -156,8 +157,13 @@ if (!albums) {
 }
 
   return (
-    
     <div className="container mx-auto p-4">
+      <SeoMetaTags 
+        title={`SpotApp | Home Page`}
+        description='Discover new hits and explore the vast world of music with our app, powered by Spotify extensive music library.'
+        imageUrl='/images/logo_2_rgb_round_1200px_2022.jpg'
+        keywords='PCh,API,Spotify'
+      />
       <h1 className="text-2xl md:text-2xl lg:text-4xl text-sky-100 mb-4">Albums</h1>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">

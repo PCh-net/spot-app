@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import CustomButton from '../components/CustomButton';
 import MiniButton from '../components/MiniButton';
+import XMiniButton from '../components/XMiniButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleChevronLeft, faCaretRight, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import SeoMetaTags from '../components/SeoMetaTags'; // important!
@@ -151,7 +152,7 @@ const AlbumDetailsPage = () => {
               
             <div className='flex flex-col'>
             {track.preview_url && (
-              <p className='text-m md:text-xl lg:text-xl text-sky-100'>Preview:&emsp;</p>
+              <p className='text-xs md:text-sm lg:text-sm text-sky-100'>Preview:</p>
             )}
 
             {track.preview_url ? (
@@ -168,7 +169,18 @@ const AlbumDetailsPage = () => {
                 </audio>
               </div>
             ) : (
-              <p className='text-l md:text-2xl lg:text-2xl text-sky-300'>Preview - disable</p>
+              <div className='flex flex-row md:flex-row lg:flex-row items-center pt-3 pb-3'>
+                <div className="flex flex-col basis-4/6 justify-start">
+                  <p className='text-xs md:text-sm lg:text-sm text-sky-300'>Preview unavailable, listen on Spotify</p>
+                </div>         
+              <div className='flex basis-2/6 justify-end'>
+                <Link to={track.external_urls.spotify} target="_blank" rel="noopener noreferrer" >
+                  <XMiniButton fullWidth={true} >
+                    <img className="h-4 md:h-5 lg:h-5" src='/images/logos/Spotify_Logo_RGB_White.png' alt='Listen on Spotify' />
+                  </XMiniButton>
+                </Link>
+              </div>
+            </div>
             )}
 
             </div>

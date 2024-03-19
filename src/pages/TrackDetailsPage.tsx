@@ -174,7 +174,7 @@ const TrackDetailsPage = () => {
         {trackDetails.preview_url ? (
           <h2 className='text-xl text-sky-100 mt-2 mb-2'>Preview track:</h2>
         ) : (
-          <h2 className='text-xl text-sky-100 mt-2 mb-2'>Preview disable</h2>
+          <p className='text-xs md:text-sm lg:text-sm text-sky-300'>Preview unavailable, listen on Spotify</p>
         )}
           {trackDetails.preview_url && (
             <div className="my-4">

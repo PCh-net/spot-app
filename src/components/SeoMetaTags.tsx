@@ -13,7 +13,6 @@ const SeoMetaTags: React.FC<{ title: string; description: string; imageUrl?: str
       {imageUrl && <meta property="og:image" content={imageUrl} />}
       <meta property="og:type" content="website" />
 
-      <meta name="robots" content="noindex, nofollow" />
       <meta name="author" content="PCh" />
       {keywords && <meta name="keywords" content={keywords} />}
 

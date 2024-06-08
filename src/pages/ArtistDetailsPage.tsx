@@ -128,7 +128,7 @@ const ArtistDetailsPage = () => {
           <div className='flex basis-1/5'>
             {artistDetails.images?.length > 0 && (
               <img 
-                className='p-2 w-full object-cover rounded-xl' 
+                className='p-2 w-full object-cover rounded-full' 
                 src={artistDetails.images[0].url} 
                 alt={artistDetails.name} 
               />

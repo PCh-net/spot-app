@@ -9,6 +9,8 @@ import TrackDetailsPage from './pages/TrackDetailsPage';
 import ArtistDetailsPage from './pages/ArtistDetailsPage';
 import PlaylistsPage from './pages/PlaylistsPage';
 import PlaylistDetailsPage from './pages/PlaylistDetailsPage';
+import PodcastPage from './pages/PodcastPage';
+import PodcastDetailsPage from './pages/PodcastDetailsPage';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -29,6 +31,8 @@ const App: React.FC = () => {
             <Route path="/artist/:artistId" element={<ArtistDetailsPage />} />
             <Route path="/playlist" element={<PlaylistsPage />} />
             <Route path="/playlist/:playlistId" element={<PlaylistDetailsPage />} />
+            <Route path="/podcast" element={<PodcastPage />} />
+            <Route path="/podcast/:podcastId" element={<PodcastDetailsPage />} />
           </Routes>
           <CategoriesMiddle />   
         </div>

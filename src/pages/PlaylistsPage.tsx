@@ -49,7 +49,7 @@ const PlaylistsPage = () => {
 
     const fetchFeaturedPlaylists = async () => {
       try {
-        const response = await axios.get('https://api.spotify.com/v1/browse/featured-playlists', {
+        const response = await axios.get('https://api.spotify.com/v1/browse/featured-playlists?limit=18', {
           headers: { 'Authorization': `Bearer ${accessToken}` }
         });
         setPlaylists(response.data.playlists.items);

@@ -76,7 +76,7 @@ const AlbumsPage = () => {
   
     const fetchAlbums = async () => {
 
-      const albumsEndpoint = `https://api.spotify.com/v1/albums?ids=382ObEPsp2rxGrnsizN5TX,1PeYjDmxcRNvxLd5mGHuCC,04rz93AqGy9JduzV3K81Dh,4iLPd0Abb4S96sB2QEz2bl,4bNiBmPncdmzzWdeUSs7DF,1TWi6eUlS9z7ORpStTeBV8,3vWAnIoZc46DUofbCjySZK,6PRPYATK5VvjZ2p911y6U0,02VRifrsiTM73hPGjXduRQ,0LbBu7ge5bkDeI17ozc174,0rwbMKjNkp4ehQTwf9V2Jk,3gz3XOFJ5w99GDode87xbO`;
+      const albumsEndpoint = `https://api.spotify.com/v1/albums?ids=3AMXFnwHWXCvNr5NCCpLZI,1PeYjDmxcRNvxLd5mGHuCC,04rz93AqGy9JduzV3K81Dh,4iLPd0Abb4S96sB2QEz2bl,4bNiBmPncdmzzWdeUSs7DF,1TWi6eUlS9z7ORpStTeBV8,3vWAnIoZc46DUofbCjySZK,6PRPYATK5VvjZ2p911y6U0,02VRifrsiTM73hPGjXduRQ,0LbBu7ge5bkDeI17ozc174,0rwbMKjNkp4ehQTwf9V2Jk,3gz3XOFJ5w99GDode87xbO`;
 
       const artistsDataWithTrackIds = [
         { 
@@ -230,7 +230,7 @@ if (!albums) {
                 <img 
                   src={artist.images[0].url}
                   alt={artist.name} 
-                  className="p-2 w-full object-cover rounded"
+                  className="p-2 w-full object-cover rounded-full"
                 />
               </div>
               <div className='flex flex-col basis-4/6 p-2'>

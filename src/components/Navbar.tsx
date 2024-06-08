@@ -26,6 +26,7 @@ const Navbar = () => {
               <Link to="/" ><MiniButton fullWidth={true} >Home page</MiniButton></Link>
               <Link to="/albums" className='pl-4' ><MiniButton fullWidth={true} >Albums</MiniButton></Link>
               <Link to="/playlist" className='pl-4' ><MiniButton fullWidth={true} >Playlist</MiniButton></Link>
+              <Link to="/podcast" className='pl-4' ><MiniButton fullWidth={true} >Podcast</MiniButton></Link>
             </div>
           </div>
           {/* mobile menu button */}
@@ -52,6 +53,11 @@ const Navbar = () => {
         <Link to="/playlist" className="block py-2 px-4 text-sm hover:bg-sky-500">
           <span className='text-xl text-sky-100 hover:text-sky-100'>
             <FontAwesomeIcon icon={faCaretRight} className='text-xl' />&emsp;Playlist
+          </span>
+        </Link>
+        <Link to="/podcast" className="block py-2 px-4 text-sm hover:bg-sky-500">
+          <span className='text-xl text-sky-100 hover:text-sky-100'>
+            <FontAwesomeIcon icon={faCaretRight} className='text-xl' />&emsp;Podcast
           </span>
         </Link>
       </div>

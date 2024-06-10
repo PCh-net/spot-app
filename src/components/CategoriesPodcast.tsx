@@ -1,20 +1,22 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
+import { faCircleInfo, faPodcast } from '@fortawesome/free-solid-svg-icons';
+import CustomButton from '../components/CustomButton';
+import MiniButton from '../components/MiniButton';
 
-const CategoriesMiddle = () => {
+const CategoriesPodcast = () => {
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className='text-2xl text-sky-100 mb-4'>Categories playlist</h1>
+    <div className="container mx-auto py-4">
+      <h1 className='text-2xl text-sky-100 mb-4'>Categories podcasts</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
         {/*  */}
         <div className="bg-gradient-to-r from-sky-600 via-sky-700 to-sky-500 rounded shadow-md hover:shadow-xl items-center p-2">
           <div className='flex flex-row'>
             <div className='flex basis-5/6 justify-start'>
               <span className='text-xl md:text-2xl lg:text-2xl text-sky-200 hover:text-sky-100 hover:underline-offset-1 ml-2'>
-              <FontAwesomeIcon icon={faCircleInfo} />&emsp;
-              <Link to="/categories/0JQ5DAqbMKFImHYGo3eTSg" onClick={() => window.scrollTo(0, 0)} >Fresh Finds</Link>
+              <FontAwesomeIcon icon={faPodcast} spinPulse={true} />&emsp;
+              <Link to="/podcasts/comedy" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }} >Comedy</Link>
               </span>
             </div>
             <div className='flex basis-1/6 justify-end'>
@@ -28,7 +30,7 @@ const CategoriesMiddle = () => {
             <div className='flex basis-5/6 justify-start'>
               <span className='text-xl md:text-2xl lg:text-2xl text-sky-200 hover:text-sky-100 hover:underline-offset-1 ml-2'>
               <FontAwesomeIcon icon={faCircleInfo} />&emsp;
-              <Link to="/categories/0JQ5DAqbMKFAXlCG6QvYQ4" onClick={() => window.scrollTo(0, 0)} >Trening</Link>
+              <Link to="/podcasts/News" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }} >News</Link>
               </span>
             </div>
             <div className='flex basis-1/6 justify-end'>
@@ -42,7 +44,7 @@ const CategoriesMiddle = () => {
             <div className='flex basis-5/6 justify-start'>
               <span className='text-xl md:text-2xl lg:text-2xl text-sky-200 hover:text-sky-100 hover:underline-offset-1 ml-2'>
               <FontAwesomeIcon icon={faCircleInfo} />&emsp;
-              <Link to="/categories/0JQ5DAqbMKFDXXwE9BDJAr" onClick={() => window.scrollTo(0, 0)} >Rock</Link>
+              <Link to="/podcasts/0JQ5DAqbMKFDXXwE9BDJAr" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }} >Rock</Link>
               </span>
             </div>
             <div className='flex basis-1/6 justify-end'>
@@ -56,7 +58,7 @@ const CategoriesMiddle = () => {
             <div className='flex basis-5/6 justify-start'>
               <span className='text-xl md:text-2xl lg:text-2xl text-sky-200 hover:text-sky-100 hover:underline-offset-1 ml-2'>
               <FontAwesomeIcon icon={faCircleInfo} />&emsp;
-              <Link to="/categories/0JQ5DAqbMKFOOxftoKZxod" onClick={() => window.scrollTo(0, 0)} >RADAR</Link>
+              <Link to="/podcasts/0JQ5DAqbMKFOOxftoKZxod" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }} >RADAR</Link>
               </span>
             </div>
             <div className='flex basis-1/6 justify-end'>
@@ -70,7 +72,7 @@ const CategoriesMiddle = () => {
             <div className='flex basis-5/6 justify-start'>
               <span className='text-xl md:text-2xl lg:text-2xl text-sky-200 hover:text-sky-100 hover:underline-offset-1 ml-2'>
               <FontAwesomeIcon icon={faCircleInfo} />&emsp;
-              <Link to="/categories/0JQ5DAqbMKFIpEuaCnimBj" onClick={() => window.scrollTo(0, 0)} >Soul</Link>
+              <Link to="/podcasts/0JQ5DAqbMKFIpEuaCnimBj" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}>Soul</Link>
               </span>
             </div>
             <div className='flex basis-1/6 justify-end'>
@@ -84,7 +86,7 @@ const CategoriesMiddle = () => {
             <div className='flex basis-5/6 justify-start'>
               <span className='text-xl md:text-2xl lg:text-2xl text-sky-200 hover:text-sky-100 hover:underline-offset-1 ml-2'>
               <FontAwesomeIcon icon={faCircleInfo} />&emsp;
-              <Link to="/categories/0JQ5DAqbMKFFtlLYUHv8bT" onClick={() => window.scrollTo(0, 0)} >Alternative</Link>
+              <Link to="/podcasts/0JQ5DAqbMKFFtlLYUHv8bT" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}>Alternative</Link>
               </span>
             </div>
             <div className='flex basis-1/6 justify-end'>
@@ -98,7 +100,7 @@ const CategoriesMiddle = () => {
             <div className='flex basis-5/6 justify-start'>
               <span className='text-xl md:text-2xl lg:text-2xl text-sky-200 hover:text-sky-100 hover:underline-offset-1 ml-2'>
               <FontAwesomeIcon icon={faCircleInfo} />&emsp;
-              <Link to="/categories/0JQ5DAqbMKFRY5ok2pxXJ0" onClick={() => window.scrollTo(0, 0)} >Cooking & Dining</Link>
+              <Link to="/podcasts/0JQ5DAqbMKFRY5ok2pxXJ0" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}>Cooking & Dining</Link>
               </span>
             </div>
             <div className='flex basis-1/6 justify-end'>
@@ -112,7 +114,7 @@ const CategoriesMiddle = () => {
             <div className='flex basis-5/6 justify-start'>
               <span className='text-xl md:text-2xl lg:text-2xl text-sky-200 hover:text-sky-100 hover:underline-offset-1 ml-2'>
               <FontAwesomeIcon icon={faCircleInfo} />&emsp;
-              <Link to="/categories/0JQ5DAqbMKFCfObibaOZbv" onClick={() => window.scrollTo(0, 0)} >Gaming</Link>
+              <Link to="/podcasts/0JQ5DAqbMKFCfObibaOZbv" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}>Gaming</Link>
               </span>
             </div>
             <div className='flex basis-1/6 justify-end'>
@@ -135,4 +137,4 @@ const CategoriesMiddle = () => {
 
 };
 
-export default CategoriesMiddle;
+export default CategoriesPodcast;

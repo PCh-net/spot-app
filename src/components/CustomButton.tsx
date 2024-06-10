@@ -2,10 +2,10 @@ const CustomButton = ({ size = 'text-lg', fullWidth = false, ...props }) => {
   const buttonClasses = `
     ${size}
     ${fullWidth ? 'w-full' : ''}
-    text-sky-200
-    hover:text-sky-200
-    bg-gradient-to-r from-sky-600 via-sky-400 to-sky-500
-    hover:bg-gradient-to-br
+    text-sky-100
+    hover:text-sky-100
+    bg-gradient-to-r from-sky-400 via-sky-600 to-sky-500
+    hover:bg-gradient-to-br from-sky-400 via-sky-500 to-sky-600
     focus:ring-4
     focus:outline-none
     focus:ring-sky-300

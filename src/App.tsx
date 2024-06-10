@@ -31,10 +31,10 @@ const App: React.FC = () => {
             <Route path="/artist/:artistId" element={<ArtistDetailsPage />} />
             <Route path="/playlist" element={<PlaylistsPage />} />
             <Route path="/playlist/:playlistId" element={<PlaylistDetailsPage />} />
-            <Route path="/podcast" element={<PodcastPage />} />
+            <Route path="/podcasts" element={<PodcastPage />} />
+            <Route path="/podcasts/:podcastName" element={<PodcastPage />} />
             <Route path="/podcast/:podcastId" element={<PodcastDetailsPage />} />
-          </Routes>
-          <CategoriesMiddle />   
+          </Routes> 
         </div>
 
         <Footer />

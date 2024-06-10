@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import CustomButton from '../components/CustomButton';
 import MiniButton from '../components/MiniButton';
 import PaginationButton from '../components/PaginationButton';
 import SeoMetaTags from '../components/SeoMetaTags'; // important!
+import { podcastCategory } from '../constants/padcastCategory';
+
 
 interface Podcast {
   id: string;
@@ -16,11 +18,6 @@ interface Podcast {
   type: string;
   album_type: string;
   images: [{ url: string }];
-  artists:  [{ 
-    id: string
-    name: string
-    type: string
-  }];
   publisher: string;
 }
 
@@ -28,6 +25,7 @@ interface Podcast {
 
 const PodcastPage = () => {
   const [podcasts, setPodcasts] = useState<Podcast[]>([]);
+  const { podcastName } = useParams<{ podcastName: string }>();
   const [currentPage, setCurrentPage] = useState(0);
   const [accessToken, setAccessToken] = useState<string | null>(null);
   const [podcastsPerPage] = useState(12);
@@ -68,7 +66,9 @@ const PodcastPage = () => {
       try {
         const offset = currentPage * podcastsPerPage;
 
-        const response = await axios.get(`https://api.spotify.com/v1/search?q=technology&type=show&limit=${podcastsPerPage}&offset=${offset}&market=PL`, {
+        let queryName = podcastName || "technology";
+
+        const response = await axios.get(`https://api.spotify.com/v1/search?q=${queryName}&type=show&limit=${podcastsPerPage}&offset=${offset}&market=PL`, {
           headers: { 'Authorization': `Bearer ${accessToken}` }
         });
 
@@ -82,7 +82,8 @@ const PodcastPage = () => {
  
     fetchPodcasts();
 
-  }, [accessToken, currentPage, podcastsPerPage]); 
+  }, [accessToken, currentPage, podcastsPerPage, podcastName]); 
+
 
 
   const lastPage = Math.ceil(totalPodcasts / podcastsPerPage) - 1;
@@ -97,6 +98,10 @@ const handleNext = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
+const handleCategory = () => {
+  setCurrentPage(0);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
 if (!podcasts) {
   return <div className='container mx-auto p-4'>
@@ -108,11 +113,12 @@ if (!podcasts) {
     <div className="container mx-auto p-4">
       <SeoMetaTags 
         title={`SpotApp | Podcast`}
-        description='Dive into the world of music with our app, where the latest albums across all genres await you. Powered by Spotify comprehensive library, find your next favorite album and expand your musical horizons. New music is podcast at your fingertips!'
+        description='Dive into the world of podcasts with our app, where the latest albums across all genres await you. Powered by Spotify comprehensive library, find your next favorite album and expand your musical horizons. New music is podcast at your fingertips!'
         imageUrl={podcasts[0]?.images[0].url}
-        keywords='podcast,spotify'
+        keywords='podcasts,spotify'
       />
-      <h1 className="text-2xl md:text-2xl lg:text-4xl text-sky-100 mb-4">New Releases</h1>
+      <h1 className="text-2xl md:text-2xl lg:text-4xl text-sky-100 mb-4">New Podcasts: {podcastName}</h1>
+
       <div className="flex text-xl justify-center mt-4 align-middle">
         <PaginationButton onClick={handlePrevious} disabled={currentPage === 0}>
           <FontAwesomeIcon icon={faArrowLeft} />
@@ -122,7 +128,6 @@ if (!podcasts) {
           <FontAwesomeIcon icon={faArrowRight} />
         </PaginationButton>
       </div>
-
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
       {!podcasts.length ? (
@@ -135,14 +140,13 @@ if (!podcasts) {
             <div>
               {podcast.images.length > 0 && (
                 <Link to={`/podcast/${podcast.id}`} onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }} >
-                  <img src={podcast.images[0].url} alt={podcast.name} className="w-full object-cover rounded shadow-md hover:shadow-xl hover:shadow-sky-400/70 transform hover:scale-95 transition-transform duration-200" />
+                  <img src={podcast.images[0].url} alt={podcast.name} onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }} className="w-full object-cover rounded shadow-md hover:shadow-xl hover:shadow-sky-400/70 transform hover:scale-95 transition-transform duration-200" />
                 </Link>
               )}
             </div>
             <div>
               <h2 className='text-xl text-sky-100 pt-2 line-clamp-3 text-ellipsis min-h-[3rem]'><span className='text-sky-300'>Podcast: </span>{podcast.name}</h2>
               <p className='text-s text-sky-200 mt-0.5'>Publisher: {podcast.publisher}</p>
-
               <p className='text-s text-sky-200 mt-0.5'>Total episodes: {podcast.total_episodes}</p>
             </div>
             <div className='flex flex-row justify-center mt-2'>
@@ -154,7 +158,6 @@ if (!podcasts) {
               </div>
             </div>
           </div>
-
           ))
         )}
       </div>
@@ -169,10 +172,25 @@ if (!podcasts) {
         </PaginationButton>
       </div>
 
+      <h1 className="text-2xl md:text-2xl lg:text-4xl text-sky-100 mb-4">Podcast categories:</h1>
 
-      <Link to="/">
+      <div className="gap-4">
+        <div className='py-1'>
+          {podcastCategory.map((category) => (
+            <Link key={category.path} to={category.path} onClick={handleCategory} >
+              <MiniButton size="text-sm" fullWidth={false}>
+              {category.label}
+              </MiniButton>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+
+      <Link to="/" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}>
         <CustomButton size="text-2xl" fullWidth={true}>Home page</CustomButton>
       </Link>
+
     </div>
   );
 };

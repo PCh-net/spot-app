@@ -76,7 +76,7 @@ const CategoriesPage = () => {
         setCategoryDetails(response.data);
       } catch (error) {
         console.error('Error fetching category details:', error);
-        setError('Nie udało się wczytać szczegółów kategorii.');
+        setError('The category details failed to load.');
       }
     };
 
@@ -89,7 +89,7 @@ const CategoriesPage = () => {
         });
         setPlaylists(response.data.playlists.items);
       } catch (error) {
-        setError('Nie udało się wczytać danych.');
+        setError('Failed to load data.');
       } finally {
         setIsLoading(false);
       }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlugCircleBolt, faHome, faEthernet, faIcons, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faPlugCircleBolt, faHome, faEthernet, faIcons, faGlobe, faPodcast } from '@fortawesome/free-solid-svg-icons';
 
 
 const Footer = () => {
@@ -30,9 +30,14 @@ const Footer = () => {
             <FontAwesomeIcon icon={faEthernet} className='text-xl' />&emsp;Matrix
           </span>
         </Link>
+        <Link to="/podcasts" className="block py-2 px-4 text-sm hover:bg-sky-500" onClick={() => window.scrollTo(0, 0)}>
+          <span className='text-xl text-sky-100 hover:text-sky-200'>
+            <FontAwesomeIcon icon={faPodcast} className='text-xl' />&emsp;Podcast
+          </span>
+        </Link>
         <Link to="/" className="block py-2 px-4 text-sm hover:bg-sky-500" onClick={() => window.scrollTo(0, 0)}>
           <span className='text-xl text-sky-100 hover:text-sky-200'>
-            <FontAwesomeIcon icon={faHome} className='text-xl' />&emsp;Up page
+            <FontAwesomeIcon icon={faHome} className='text-xl' />&emsp;Home page
           </span>
         </Link>
         <div className="flex-row block py-6 px-4 text-sm hover:bg-sky-500 justify-center" >

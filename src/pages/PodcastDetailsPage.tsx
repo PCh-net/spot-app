@@ -113,7 +113,7 @@ const PodcastDetailsPage = () => {
       />
       <div className="flex-row bg-gradient-to-r from-sky-600 via-sky-700 to-sky-500 rounded-2xl shadow-md p-4 drop-shadow-xl mt-4">
         <div className='flex flex-col md:flex-row'>
-          <div className='flex basis-2/5'>
+          <div className='basis-2/5'>
             {podcastDetails.images?.length > 0 && (
               <img 
                 className='w-full p-2' 
@@ -122,7 +122,7 @@ const PodcastDetailsPage = () => {
               />
             )}
           </div>
-          <div className='flex flex-col basis-3/5 ml-2'>
+          <div className='flex-col basis-3/5 ml-2'>
             <h1 className='text-2xl md:text-3xl lg:text-4xl text-sky-100'><span className='text-sky-300'>Podcast: </span>{podcastDetails.name}</h1>
             <p className='text-m md:text-2xl lg:text-2xl text-sky-100'><span className='text-sky-300'>Total episodes: </span>{podcastDetails.total_episodes}</p>
             <p className='text-xl text-sky-100 mt-2'>Publisher: {podcastDetails.publisher}</p>
@@ -179,7 +179,7 @@ const PodcastDetailsPage = () => {
     )}
 
 
-        <CustomButton onClick={() => { window.history.back(); }} fullWidth={true} size='text-xl md:text-2xl' >
+        <CustomButton onClick={() => { window.history.back(); window.scrollTo({ top: 0, behavior: "smooth" }); }} fullWidth={true} size='text-xl md:text-2xl' >
           <FontAwesomeIcon icon={faCircleChevronLeft} />&emsp;Back to list
         </CustomButton>
 

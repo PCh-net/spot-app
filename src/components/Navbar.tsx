@@ -18,7 +18,6 @@ const Navbar = () => {
             <div>
               <Link to="/" className="flex items-center py-5 px-2">
                 <img src="/images/logos/Spotify_Logo_RGB_White.png" alt="Spotify-Logo-White" className="h-8 md:h-8 lg:h-8" />
-
               </Link>
             </div>
             {/* primary nav */}
@@ -26,7 +25,7 @@ const Navbar = () => {
               <Link to="/" ><MiniButton fullWidth={true} >Home page</MiniButton></Link>
               <Link to="/albums" className='pl-4' ><MiniButton fullWidth={true} >Albums</MiniButton></Link>
               <Link to="/playlist" className='pl-4' ><MiniButton fullWidth={true} >Playlist</MiniButton></Link>
-              <Link to="/podcast" className='pl-4' ><MiniButton fullWidth={true} >Podcast</MiniButton></Link>
+              <Link to="/podcasts" className='pl-4' ><MiniButton fullWidth={true} >Podcast</MiniButton></Link>
             </div>
           </div>
           {/* mobile menu button */}
@@ -55,7 +54,7 @@ const Navbar = () => {
             <FontAwesomeIcon icon={faCaretRight} className='text-xl' />&emsp;Playlist
           </span>
         </Link>
-        <Link to="/podcast" className="block py-2 px-4 text-sm hover:bg-sky-500">
+        <Link to="/podcasts" className="block py-2 px-4 text-sm hover:bg-sky-500">
           <span className='text-xl text-sky-100 hover:text-sky-100'>
             <FontAwesomeIcon icon={faCaretRight} className='text-xl' />&emsp;Podcast
           </span>

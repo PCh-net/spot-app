@@ -14,6 +14,7 @@ interface Episodes {
   duration_ms: number;
   audio_preview_url: string;
   track_number: string;
+  description: string;
   external_urls: {
     spotify: string;
   };
@@ -122,8 +123,9 @@ const PodcastDetailsPage = () => {
               />
             )}
           </div>
-          <div className='flex-col basis-3/5 ml-2'>
+          <div className='basis-3/5 ml-2'>
             <h1 className='text-2xl md:text-3xl lg:text-4xl text-sky-100'><span className='text-sky-300'>Podcast: </span>{podcastDetails.name}</h1>
+            <p className='text-base text-sky-100 mt-2'>{podcastDetails.episodes.items[0].description}</p>            
             <p className='text-m md:text-2xl lg:text-2xl text-sky-100'><span className='text-sky-300'>Total episodes: </span>{podcastDetails.total_episodes}</p>
             <p className='text-xl text-sky-100 mt-2'>Publisher: {podcastDetails.publisher}</p>
           </div>
@@ -136,31 +138,41 @@ const PodcastDetailsPage = () => {
       podcastDetails.episodes.items.map((episode, index) => (
         <React.Fragment key={index}>
           <div className='flex flex-col shadow-lg'>
-            <div className='mt-4'>
-                <p className='text-l md:text-xl lg:text-2xl text-sky-100'>
-                <span>{episode.track_number} <FontAwesomeIcon className='text-l text-sky-100 mr-2' icon={faCaretRight} /> {episode.name}
-              </span></p>
-              <img className='p-2 h-32' src={podcastDetails.episodes.items[index].images[0].url} alt={episode.name} />
+            <div className='flex flex-row md:flex-row'>
+              <div className='w-1/4 md:w-4/4'>
+                <img className='p-2 w-full' src={podcastDetails.episodes.items[index].images[0].url} alt={episode.name} />
+              </div>
+              <div className='w-3/4 md:w-4/4 m-4'>
+                <p className='text-xl md:text-xl lg:text-2xl text-sky-300'>
+                {episode.track_number} <FontAwesomeIcon className='text-l text-sky-200 mr-2' icon={faCaretRight} /> {episode.name}
+                </p>
+                <p className='text-sm md:text-sm lg:text-xl text-sky-100'>{podcastDetails.episodes.items[index].description}</p>
+              </div>
             </div>
               
             <div className='flex flex-col'>
             {episode.audio_preview_url ? (
-              <div className="my-2">
-                <audio
-                  src={episode.audio_preview_url}
-                  controls
-                  controlsList="nodownload"
-                  preload="none"
-                  className="w-full h-8 md:h-8 lg:h-10 rounded-lg shadow-lg"
-                  onPlay={(emit) => handlePlayAudio(emit.currentTarget)}
-                >
-                  Your browser does not support the audio.
-                </audio>
+              <div className="flex flex-row justify-center my-4">
+                <div className='flex w-3/4 items-center'>
+                  <audio
+                    src={episode.audio_preview_url}
+                    controls
+                    controlsList="nodownload"
+                    preload="none"
+                    className="w-full h-8 md:h-8 lg:h-10 rounded-lg shadow-lg"
+                    onPlay={(emit) => handlePlayAudio(emit.currentTarget)}
+                  >
+                    Your browser does not support the audio.
+                  </audio>
+                </div>
+                <div className='flex w-1/4 justify-center items-center'>
+                  <Link to={episode.external_urls.spotify} target="_blank" rel="noopener noreferrer" ><img className="h-4 md:h-5 lg:h-6 transition-transform duration-600 ease-in-out" src='/images/logos/Spotify_Logo_RGB_White.png' alt='Logo' title="Listen on Spotify" /></Link>
+                </div>
               </div>
             ) : (
               <div className='flex flex-row md:flex-row lg:flex-row items-center pt-3 pb-3'>
                 <div className="flex flex-col basis-4/6 justify-start">
-                  <p className='text-xs md:text-sm lg:text-sm text-sky-300'>Preview unavailable, listen on Spotify</p>
+                  <p className='text-xs md:text-sm lg:text-sm text-sky-200'>Preview unavailable, listen on Spotify</p>
                 </div>         
               <div className='flex basis-2/6 justify-end'>
                 <Link to={episode.external_urls.spotify} target="_blank" rel="noopener noreferrer" >

@@ -112,7 +112,7 @@ if (!podcasts) {
     <img className="h-full md:h-full lg:h-full" src='/images/loader-300.gif' alt='Loader' />
     </div>
 }
-console.log(podcasts);
+
   return (
     <div className="container mx-auto p-4">
       <SeoMetaTags 

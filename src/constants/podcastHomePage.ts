@@ -1,0 +1,178 @@
+export const podcastHomePage = [
+  {
+    "id": "44fyLyzKjE7ZAgy2t82CtD",
+    "path": "/podcasts/comedy",
+    "label": "Comedy",
+    "image": "https://i.scdn.co/image/ab6765630000ba8a996ab0e60eac321899d5dcc0",
+    "name": "besties",
+    "description": "Hej besties🎀 Tu wasze ulubione przyjaciółki Lila i Werka. Chciałyśmy stworzyć bezpieczne miejsce dla wszystkich dziewczyn (i nie tylko!) Ten podcast tworzycie razem z nami podsyłając swoje historie, pytania czy dylematy, a my staramy się obgadać temat i udzielić Wam jak najlepszej porady, dokładnie tak jak w gronie przyjaciół <3 Nie możemy się doczekać aby przeczytać co macie do powiedzenia!Przesyłajcie swoje maile na adres ask@yourbesties.com",
+    "publisher": "Lila & Werka",
+    "total_episodes": 28,
+    "external_urls": "https://open.spotify.com/show/44fyLyzKjE7ZAgy2t82CtD"
+  },
+  {
+    "id": "3wBfqov60qDZbEVjPHo0a8",
+    "path": "/podcasts/news",
+    "label": "News",
+    "image": "https://i.scdn.co/image/ab6765630000ba8af792739350c2cac05cec9ca4",
+    "name": "Global News Podcast",
+    "description": "The day’s top stories from BBC News. Delivered twice a day on weekdays, daily at weekends.",
+    "publisher": "BBC World Service",
+    "total_episodes": 218,
+    "external_urls": "https://open.spotify.com/show/3wBfqov60qDZbEVjPHo0a8"
+  },
+  {
+    "id": "5uHK0chXGaVqP8kI9HkxVi",
+    "path": "/podcasts/society%20and%20culture",
+    "label": "Society and Culture",
+    "image": "https://i.scdn.co/image/40d7d5d4970349cbec5b12ff0206f36042f46776",
+    "name": "Audycje Kulturalne",
+    "description": "Audycje Kulturalne - podcast Narodowego Centrum Kultury",
+    "publisher": "Audycje Kulturalne",
+    "total_episodes": 1336,
+    "external_urls": "https://open.spotify.com/show/5uHK0chXGaVqP8kI9HkxVi"
+  },
+  {
+    "id": "4Hn3qhWe5NqnhLFKytyfFW",
+    "path": "/podcasts/sport",
+    "label": "Sport",
+    "image": "https://i.scdn.co/image/ab6765630000ba8a93e7c93129a230c829d4fff3",
+    "name": "Go! My Favorite Sports Team",
+    "description": "Go! My Favorite Sports Team is a podcast that opens your mind to a whole new imagination of sports. Whether you’re a life-long sports fan, athlete, or you don’t know the difference between a goal and a touchdown (points?!), this show has something for everyone. With education, comedy, and so much more, Markiplier and Tyler Scheid are the sports commentators you didn't know you needed. By the end of each episode you'll be shouting GO! MY FAVORITE SPORTS TEAM!!!",
+    "publisher": "Go! My Favorite Sports Team",
+    "total_episodes": 120,
+    "external_urls": "https://open.spotify.com/show/4Hn3qhWe5NqnhLFKytyfFW"
+  },
+  {
+    "id": "79CkJF3UJTHFV8Dse3Oy0P",
+    "path": "/podcasts/health%20and%20fitness",
+    "label": "Health and Fitness",
+    "image": "https://i.scdn.co/image/ab6765630000ba8aaa4830256e4b613f07287208",
+    "name": "Huberman Lab",
+    "description": "Huberman Lab discusses neuroscience — how our brain and its connections with the organs of our body control our perceptions, our behaviors, and our health. We also discuss existing and emerging tools for measuring and changing how our nervous system works. Andrew Huberman, Ph.D., is a neuroscientist and tenured professor in the department of neurobiology, and by courtesy, psychiatry and behavioral sciences at Stanford School of Medicine. He has made numerous significant contributions to the fields of brain development, brain function and neural plasticity, which is the ability of our nervous system to rewire and learn new behaviors, skills and cognitive functioning.  Huberman is a McKnight Foundation and Pew Foundation Fellow and was awarded the Cogan Award, given to the scientist making the most significant discoveries in the study of vision, in 2017. His lab’s most recent work focuses on the influence of vision and respiration on human performance and brain states such as fear and courage. He also works on neural regeneration and directs a clinical trial to promote visual restoration in diseases that cause blindness. Huberman is also actively involved in developing tools now in use by the elite military in the U.S. and Canada, athletes, and technology industries to optimize performance in high stress environments, enhance neural plasticity, mitigate stress and optimize sleep.   Work from the Huberman Laboratory at Stanford School of Medicine has been published in top journals including Nature, Science and Cell and has been featured in TIME, BBC, Scientific American, Discover and other top media outlets.  In 2021, Dr. Huberman launched the Huberman Lab podcast. The podcast is frequently ranked in the top 5 of all podcasts globally and is often ranked #1 in the categories of Science, Education, and Health & Fitness.",
+    "publisher": "Scicomm Media",
+    "total_episodes": 225,
+    "external_urls": "https://open.spotify.com/show/79CkJF3UJTHFV8Dse3Oy0P"
+  },
+  {
+    "id": "3SrbcixCiWwaReaAzgYVWN",
+    "path": "/podcasts/arts",
+    "label": "Arts",
+    "image": "https://i.scdn.co/image/ab6765630000ba8a22a863bc2c2f4c9feee404a9",
+    "name": "Archiwum Teatru Wyobraźni",
+    "description": "Dwa razy w tygodniu, w środę i piątek, w cyklu Archiwum Teatru Wyobraźni przedstawiamy słuchowiska Polskiego Radia sprzed lat. Słuchowiska prezentowane są według daty nagrania – począwszy od sierpnia 2023 roku będą mogli Państwo zapoznać się z najstarszymi produkcjami z lat 50. XX wieku.  Co istotne, wszystkie prezentowane przez nas nagrania posiadają odpowiedni status formalno-prawny. Warto przypomnieć, że w świetle Ustawy o prawie autorskim i prawach pokrewnych publikowanie w sieci słuchowisk bez posiadania licencji uderza przede wszystkim w naszych wybitnych twórców i artystów wykonawców, gdyż to właśnie ich kosztem nagrania pojawiają  się w sieci nielegalnie.",
+    "publisher": "Polskie Radio S.A.",
+    "total_episodes": 397,
+    "external_urls": "https://open.spotify.com/show/3SrbcixCiWwaReaAzgYVWN"
+  },
+  {
+    "id": "4BAChH792aKxeLOQUObCG4",
+    "path": "/podcasts/business",
+    "label": "Business",
+    "image": "https://i.scdn.co/image/ab6765630000ba8aa44e3e6484f467a1d5fc60f6",
+    "name": "The Business English Podcast",
+    "description": "The Business English Podcast helps professionals to communicate more effectively, more confidently and with more impact. With professional content, rich in Business English vocabulary, expressions and conversation, the Business English Podcast is a great resource for all professionals. Improve business listening, speaking and writing skills, through interviews and masterminds with professionals from across industry. Whether for presentations, public speaking, negotiations or networking, the Business English Podcast has the tactics and techniques to help professionals communicate at their best!",
+    "publisher": "Energetic English",
+    "total_episodes": 87,
+    "external_urls": "https://open.spotify.com/show/4BAChH792aKxeLOQUObCG4"
+  },
+  {
+    "id": "0O2XCgJvR6IuFgUBwOEUoL",
+    "path": "/podcasts/education",
+    "label": "Education",
+    "image": "https://i.scdn.co/image/ab6765630000ba8ab3bd12a9a2e73308b6ddc244",
+    "name": "Radio Naukowe",
+    "description": "Radio Naukowe to podcast naukowy tworzony przez dziennikarkę Karolinę Głowacką. Tu na pierwszym planie są naukowczynie i naukowcy. Opowiadają - fenomenalnie! - o swoich dziedzinach wiedzy, aktualnych badaniach i wyzwaniach na przyszłość. Rozmawiamy nie tylko o tym CO wiemy, ale też SKĄD to wiemy.",
+    "publisher": "Radio Naukowe - Karolina Głowacka",
+    "total_episodes": 244,
+    "external_urls": "https://open.spotify.com/show/0O2XCgJvR6IuFgUBwOEUoL"
+  },
+  {
+    "id": "5HfIy3oLUOVwxMiCTi2Qos",
+    "path": "/podcasts/history",
+    "label": "History",
+    "image": "https://i.scdn.co/image/ab6765630000ba8aa1e7e20c17d3a9f14cc85475",
+    "name": "Tides of History",
+    "description": "Everywhere around us are echoes of the past. Those echoes define the boundaries of states and countries, how we pray and how we fight. They determine what money we spend and how we earn it at work, what language we speak and how we raise our children. From Wondery, host Patrick Wyman, PhD (“Fall Of Rome”) helps us understand our world and how it got to be the way it is.Listen to Tides of History on the Wondery App or wherever you get your podcasts. You can to all episodes ad-free on Wondery+. Join Wondery+ in the Wondery App or on Apple Podcasts. Start your free trial by visiting wondery.com/links/tides-of-history/ now.",
+    "publisher": "Wondery /  Patrick Wyman",
+    "total_episodes": 285,
+    "external_urls": "https://open.spotify.com/show/5HfIy3oLUOVwxMiCTi2Qos"
+  },
+  {
+    "id": "5lY4b5PGOvMuOYOjOVEcb9",
+    "path": "/podcasts/science",
+    "label": "Science",
+    "image": "https://i.scdn.co/image/ab6765630000ba8aa3ccdbf467a2fa4ed8f18a6e",
+    "name": "Science Vs",
+    "description": "There are a lot of fads, blogs and strong opinions, but then theres SCIENCE. Science Vs is the show from Gimlet that finds out whats fact, whats not, and whats somewhere in between. We do the hard work of sifting through all the science so you don't have to and cover everything from 5G and Pandemics, to Vaping and Fasting Diets.",
+    "publisher": "Spotify Studios",
+    "total_episodes": 260,
+    "external_urls": "https://open.spotify.com/show/5lY4b5PGOvMuOYOjOVEcb9"
+  },
+  {
+    "id": "6lraafQ4MOmrnRNrRrq51X",
+    "path": "/podcasts/TV%20&%20Film",
+    "label": "TV & Film",
+    "image": "https://i.scdn.co/image/ab6765630000ba8a7403e4b54c04dc7f969061d5",
+    "name": "Tomasz Raczek",
+    "description": "Zawsze starałem się ubierać w słowa moje myśli, uczucia i emocje. Robiłem to najczęściej w lekko prowokujący sposób bo zwykle dążyłem do tego, by zrodziła się z nich rozmowa, dyskusja, jakaś intensywniejsza wymiana myśli. No i w końcu uznano mnie za Mistrza Mowy Polskiej. Dziś mam nowy plan: aby dzięki mówieniu i pisaniu o filmie stworzyć przestrzeń dla szczerości i uważności w świecie wirtualnym.",
+    "publisher": "Video Brothers Music",
+    "total_episodes": 85,
+    "external_urls": "https://open.spotify.com/show/6lraafQ4MOmrnRNrRrq51X"
+  },
+  {
+    "id": "23eOWQYZyyzMnYzX5hCIZb",
+    "path": "/podcasts/kids%20&%20family",
+    "label": "Kids & Family",
+    "image": "https://i.scdn.co/image/ab6765630000ba8a42b429afc2a7393d327d2e99",
+    "name": "LOL Storytime - Stories for Kids",
+    "description": "LOL Storytime is the goofy-story-podcast for kids. These silly original stories are lighthearted and unapologetically weird. Discover what it might be like to be kid-pirate or what really happens when you catch a leprechaun. These family and school friendly stories average 10 minutes in length and are perfect for listening to in the classroom, car, or at home. Funny stories before bedtime? Sure, why not!",
+    "publisher": "Funny Stories for Kids",
+    "total_episodes": 59,
+    "external_urls": "https://open.spotify.com/show/23eOWQYZyyzMnYzX5hCIZb"
+  },
+  {
+    "id": "1hnu4ATuFW3MQ20XDCY7XV",
+    "path": "/podcasts/leisure",
+    "label": "Leisure",
+    "image": "https://i.scdn.co/image/ab6765630000ba8a1dc32afacdcc9ab5a50f6387",
+    "name": "KrUlewicz",
+    "description": "Autorska audycja artystyczno-obyczajowa Macieja Ulewicza. Dwie godziny wypełnione ekscentryczną osobowością prowadzącego i jego odważnym spojrzeniem na świat sztuki i obyczajów. Subiektywny wybór muzyki, spotkania z artystami wszelkich dziedzin, brawurowe komentarze do spraw bieżących.",
+    "publisher": "ChilliZET",
+    "total_episodes": 120,
+    "external_urls": "https://open.spotify.com/show/1hnu4ATuFW3MQ20XDCY7XV"
+  },
+  {
+    "id": "31Ti347R8WmWFtWkG5d18H",
+    "path": "/podcasts/technology",
+    "label": "Technology",
+    "image": "https://i.scdn.co/image/ab6765630000ba8af08dc2e267420ca93a55b4ba",
+    "name": "Techstorie - rozmowy o technologiach",
+    "description": "Techstorie podcast. Technologie to nie jest już jakaś gadżeciarska zabawa dla nerdów zainteresowanych nowym modelem telefonu. Nowe technologie dobitnie wpływają i zmieniają funkcjonowanie każdej dziedziny naszego życia: od wychowania dzieci, poprzez nowe wyzwania na rynku pracy, na wyborach politycznych kończąc. I właśnie te zmiany chcemy w podcaście obserwować, diagnozować i spróbować wytłumaczyć słuchaczom, którzy niekoniecznie śledzą nowinki technologiczne, ale za to próbują zorientować się w świecie, który tak szybko wokół nich się zmienia - Radio TOK FM",
+    "publisher": "TOK FM - Sylwia Czubkowska, Joanna Sosnowska",
+    "total_episodes": 88,
+    "external_urls": "https://open.spotify.com/show/31Ti347R8WmWFtWkG5d18H"
+  },
+  {
+    "id": "3vMi6yxX3xlsrleSIE9Xbw",
+    "path": "/podcasts/government",
+    "label": "Government",
+    "image": "https://i.scdn.co/image/ab6765630000ba8a5757d1fa2bea7a42df698fff",
+    "name": "INSIDE BRIEFING with Institute for Government",
+    "description": "These are tumultuous times in UK politics. Government is under strain, the civil service is under pressure, and ministers are grappling with the fallout of Covid, the impact of Brexit and an unprecedented cost-of-living crisis. So where is government working well and what is it doing badly? What can be done to make No10, the Treasury and the rest of government function more effectively? And as a general election draws ever nearer, what are the key political and policy dividing lines – and what do they mean for the way this country is run?  Get behind the scenes in Westminster, Whitehall and beyond on the weekly podcast from Britain’s leading governmental think tank, where we analyse the latest events in politics and explain what they mean. Every week on INSIDE BRIEFING, IfG director Hannah White and the team welcome special guests for a free-ranging conversation on what makes government work – and how to fix it when it doesn’t.",
+    "publisher": "Institute for Government",
+    "total_episodes": 295,
+    "external_urls": "https://open.spotify.com/show/3vMi6yxX3xlsrleSIE9Xbw"
+  },
+  {
+    "id": "5Y0vLEg41Sf5biJ2bEQQJd",
+    "path": "/podcasts/fiction",
+    "label": "Fiction",
+    "image": "https://i.scdn.co/image/ab6765630000ba8ac407ff3f102ec98cd0038367",
+    "name": "MysteryTV",
+    "description": "Najmroczniejsze historie w sieci. Odważysz się? Wejdź i przekonaj się sam. Straszne historie, CreepyPasty. Nowe odcinki w każdy piątek i niedzielę o 21:00. Czyta: Jakub Rutka",
+    "publisher": "Jakub Rutka",
+    "total_episodes": 357,
+    "external_urls": "https://open.spotify.com/show/5Y0vLEg41Sf5biJ2bEQQJd"
+  },
+]

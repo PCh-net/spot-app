@@ -40,39 +40,39 @@ export const podcastCategory = [
     "label": "True Crime"
   },
   {
-    "path": "/podcasts/Music",
+    "path": "/podcasts/music",
     "label": "Music"
   },
   {
-    "path": "/podcasts/Science",
+    "path": "/podcasts/science",
     "label": "Science"
   },
   {
-    "path": "/podcasts/TV & Film",
+    "path": "/podcasts/TV%20&%20Film",
     "label": "TV & Film"
   },
   {
-    "path": "/podcasts/Kids & Family",
+    "path": "/podcasts/kids%20&%20family",
     "label": "Kids & Family"
   },
   {
-    "path": "/podcasts/Religion & Spirituality",
+    "path": "/podcasts/religion%20&%20spirituality",
     "label": "Religion & Spirituality"
   },
   {
-    "path": "/podcasts/Leisure",
+    "path": "/podcasts/leisure",
     "label": "Leisure"
   },
   {
-    "path": "/podcasts/Technology",
+    "path": "/podcasts/technology",
     "label": "Technology"
   },
   {
-    "path": "/podcasts/Government",
+    "path": "/podcasts/government",
     "label": "Government"
   },
   {
-    "path": "/podcasts/Fiction",
+    "path": "/podcasts/fiction",
     "label": "Fiction"
   }
 ]

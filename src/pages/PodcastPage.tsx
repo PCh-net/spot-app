@@ -19,8 +19,12 @@ interface Podcast {
   album_type: string;
   images: [{ url: string }];
   publisher: string;
+  external_urls: ExternalUrls;
 }
 
+interface ExternalUrls {
+  spotify: string;
+}
 
 
 const PodcastPage = () => {
@@ -108,7 +112,7 @@ if (!podcasts) {
     <img className="h-full md:h-full lg:h-full" src='/images/loader-300.gif' alt='Loader' />
     </div>
 }
-
+console.log(podcasts);
   return (
     <div className="container mx-auto p-4">
       <SeoMetaTags 
@@ -154,7 +158,7 @@ if (!podcasts) {
                 <Link to={`/podcast/${podcast.id}`} onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}><MiniButton><FontAwesomeIcon icon={faCaretRight} />&emsp;Podcast</MiniButton></Link>
               </div>
               <div className='flex basis-2/6 justify-center items-center'>
-              <Link to={`/podcast/${podcast.id}`} onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}><img className="h-6 md:h-6 lg:h-6 hover:h-7" src='/images/logos/Spotify_Logo_RGB_White.png' alt='Logo' /></Link>
+              <Link to={podcast.external_urls.spotify} target="_blank" rel="noopener noreferrer" ><img className="h-6 md:h-6 lg:h-6 hover:h-7 transition-transform duration-600 ease-in-out" src='/images/logos/Spotify_Logo_RGB_White.png' alt='Logo' title="Listen on Spotify" /></Link>
               </div>
             </div>
           </div>
@@ -176,8 +180,8 @@ if (!podcasts) {
 
       <div className="gap-4">
         <div className='py-1'>
-          {podcastCategory.map((category) => (
-            <Link key={category.path} to={category.path} onClick={handleCategory} >
+          {podcastCategory.map((category, index) => (
+            <Link key={index} to={category.path} onClick={handleCategory} >
               <MiniButton size="text-sm" fullWidth={false}>
               {category.label}
               </MiniButton>

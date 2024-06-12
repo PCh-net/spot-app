@@ -2,9 +2,10 @@ import React, { useEffect, useState, useCallback, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleInfo, faCaretRight, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCircleInfo, faCaretRight, faInfoCircle, faPodcast } from '@fortawesome/free-solid-svg-icons';
 import MiniButton from '../components/MiniButton';
 import SeoMetaTags from '../components/SeoMetaTags'; // important!
+import { podcastHomePage } from '../constants/podcastHomePage';
 
 interface Album {
   id: string;
@@ -212,7 +213,7 @@ if (!albums) {
       <h1 className='text-2xl md:text-2xl lg:text-4xl text-sky-100 py-4'>Top Artists</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
         {artists.map((artist) => (
-          <div key={artist.id} className="bg-gradient-to-r from-sky-600 via-sky-700 to-sky-500 rounded shadow-md hover:shadow-xl items-center p-2">
+          <div key={artist.id} className="bg-gradient-to-r from-sky-600 via-sky-700 to-sky-500 rounded-2xl shadow-md hover:shadow-xl items-center p-2">
             <div className='flex flex-row mt-2'>
               <div className='flex basis-5/6 justify-start'>
                 <span className='text-sm md:text-md lg:text-lg text-sky-200 hover:text-sky-100 hover:underline-offset-1 ml-2'>
@@ -263,6 +264,50 @@ if (!albums) {
           </div>
         ))}
       </div>
+
+      <h1 className='text-2xl md:text-2xl lg:text-4xl text-sky-100 py-4'>Podcasts</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {podcastHomePage.map((podcastHome, index) => (
+        <div key={podcastHome.id} className="flex flex-col justify-between bg-gradient-to-r from-sky-600 via-sky-700 to-sky-500 rounded-2xl p-4 drop-shadow-xl mt-4">
+          <div className='flex flex-row mb-2'>
+            <div className='flex basis-5/6 justify-start'>
+              <span className='text-sm md:text-sm lg:text-sm text-sky-100 hover:text-sky-200 line-clamp-2 text-ellipsis min-h-[2rem]'>
+                <FontAwesomeIcon icon={faPodcast} className='mr-2' />
+                <Link to={podcastHome.path} onClick={() => window.scrollTo(0, 0)} >Podcasts: {podcastHome.label}</Link>
+              </span>
+            </div>
+            <div className='flex basis-1/6 justify-end'>
+              <img className="h-4 md:h-4 lg:h-4 mr-2" src='/images/logos/Spotify_Icon_RGB_White.png' alt='Logo' />
+            </div>
+          </div>
+
+          <div>
+            {podcastHome.image.length > 0 && (
+              <Link to={`/podcast/${podcastHome.id}`} onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }} >
+                <img src={podcastHome.image} alt={podcastHome.name} onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }} className="w-full object-cover rounded-xl shadow-md hover:shadow-xl hover:shadow-sky-400/70 transform hover:scale-95 transition-transform duration-200" />
+              </Link>
+            )}
+          </div>
+          <div>
+            <h2 className='text-xl text-sky-100 pt-2 line-clamp-3 text-ellipsis min-h-[3rem]'><span className='text-sky-300'>Podcast: </span>{podcastHome.name}</h2>
+            <p className='text-s text-sky-200 mt-0.5'>Publisher: {podcastHome.publisher}</p>
+            <p className='text-s text-sky-200 mt-0.5'>Total episodes: {podcastHome.total_episodes}</p>
+          </div>
+          <div className='flex flex-row justify-center mt-2'>
+            <div className='flex basis-4/6 items-center mt-2'>
+              <Link to={`/podcast/${podcastHome.id}`} onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+              <MiniButton fullWidth={true} size={`text-xs md:text-xs lg:text-xs`}><FontAwesomeIcon icon={faCaretRight} />&emsp;Podcast</MiniButton>
+              </Link>
+            </div>
+            <div className='flex basis-2/6 justify-center items-center'>
+            <Link to={podcastHome.external_urls} target="_blank" rel="noopener noreferrer" ><img className="h-5 md:h-5 lg:h-5 transition-transform duration-600 ease-in-out" src='/images/logos/Spotify_Logo_RGB_White.png' alt='Logo' title="Listen on Spotify" /></Link>
+            </div>
+          </div>
+        </div>
+        ))}
+      </div>
+
+
 
     </div>
   );
